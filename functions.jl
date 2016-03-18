@@ -38,8 +38,7 @@ function plotConfig(config, n, hasTitle = false, titleName = "")
 		end
 	end
 	if(hasTitle)
-		savefig(string("test/", titleName, ".eps"))
-		#savefig(string("figures/", titleName, ".eps"))
+		savefig(string("figures/", titleName, ".eps"))
 	end
 end
 	
@@ -240,6 +239,13 @@ function generateTransitionMatrix(n,k, lambda, dist = 0, lambdaFixed = false)
 			index2 = findfirst(posConfigs, runCollisionChain(n,point, lambda, "right", config, dist = dist, lambdaFixed = lambdaFixed));
 
 
+			#add the possibility of switching direction with a certain positive rate
+			index3 = findfirst(posConfigs, runCollisionChain(n,point, lambda, "down", config, dist = dist, lambdaFixed = lambdaFixed));
+			index4 = findfirst(posConfigs, runCollisionChain(n,point, lambda, "left", config, dist = dist, lambdaFixed = lambdaFixed));
+
+
+
+
 			#there should not be invalid configurations with the updated algorithm 
 			numInvalid = numInvalid + (index1==0) + (index2==0);  #increment number of invalid increments
 			if( index1 == 0 )
@@ -259,10 +265,17 @@ function generateTransitionMatrix(n,k, lambda, dist = 0, lambdaFixed = false)
 
 			countMatrix[originalIndex, index1] = countMatrix[originalIndex, index1] +1;
 			countMatrix[originalIndex, index2] = countMatrix[originalIndex, index2] +1;
+
+
+			#add possibility of switching direction 
+			countMatrix[originalIndex, index3] = countMatrix[originalIndex, index3] +1;
+			countMatrix[originalIndex, index4] = countMatrix[originalIndex, index4] +1;
+
 		end
 
 	end
-	normalizationConstant = 2*k; 
+	#normalizationConstant = 2*k;
+	normalizationConstant = 4*k; 
 	stochasticMatrix = countMatrix./normalizationConstant;
 	percent = numInvalid/(normalizationConstant*l);
 
