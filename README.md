@@ -37,7 +37,3 @@ script. The plots are saved as EPS files in `figures/`.
 | [`functions.jl`](functions.jl) | configurations, collision chains, transition matrices, plotting |
 | [`script.jl`](script.jl) | the runs that produce the figures |
 | [`figures/`](figures/) | the figures as EPS files, with PDF conversions |
-
-## Authors and citation
-
-The code is by **Ahmed Bou-Rabee**.
