@@ -13,10 +13,10 @@ configurations, and compares the second largest eigenvalues of the two chains. T
 
 ## Running
 
-The code was written in March 2016 for a Julia release before 1.0 and does not run on current
-Julia: `script.jl` uses `eig`, which was removed in Julia 1.0, and `norm` is called without
-loading `LinearAlgebra`. There is no `Project.toml`. The only package the code loads is
-`PyPlot` (matplotlib through PyCall).
+The code was written in March 2016 for a Julia release before 1.0 and does not run on
+current Julia: `script.jl` uses `eig`, which was removed in Julia 1.0, and `norm` is called
+without loading `LinearAlgebra`. The only package the code loads is `PyPlot` (matplotlib
+through PyCall).
 
 With a pre-1.0 Julia and `PyPlot` installed, run from the repository directory:
 
@@ -40,8 +40,7 @@ script. The plots are saved as EPS files in `figures/`.
 
 ## Authors and citation
 
-The code is by **Ahmed Bou-Rabee**. The repository does not name an associated paper, so it
-has no `CITATION.cff`.
+The code is by **Ahmed Bou-Rabee**.
 
 ## License
 
