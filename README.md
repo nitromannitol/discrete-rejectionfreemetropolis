@@ -41,7 +41,3 @@ script. The plots are saved as EPS files in `figures/`.
 ## Authors and citation
 
 The code is by **Ahmed Bou-Rabee**.
-
-## License
-
-The code is licensed under the Apache License 2.0; see [`LICENSE`](LICENSE).
